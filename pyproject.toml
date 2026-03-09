@@ -1,45 +1,20 @@
-[build-system]
-requires = ["setuptools>=61.0", "wheel"]
-build-backend = "setuptools.build_meta"
-
-[project]
+[tool.poetry]
 name = "jarvisco"
-version = "1.0.0"
-description = "Copiloto Offline Senior para Termux"
-readme = "README.md"
-authors = [
-    {name = "Sergio Alberto Sanchez Echeverria"},
-]
-license = {text = "MIT"}
-classifiers = [
-    "Development Status :: 4 - Beta",
-    "Intended Audience :: Developers",
-    "Topic :: Software Development :: Code Generators",
-    "License :: OSI Approved :: MIT License",
-    "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3.9",
-    "Programming Language :: Python :: 3.10",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
-    "Operating System :: POSIX :: Linux",
-    "Environment :: Console",
-]
-requires-python = ">=3.8"
-dependencies = []  # Vacío pero explícito
+version = "0.1.0"
+description = "A conversational AI project"
+authors = ["Ruben <ruben12n11-a11y@example.com>"]
+inherits = ["poetry-core >=1.0.0"]
 
-[project.scripts]
-jarvisco = "interactive_chat:main"
+[tool.poetry.dependencies]
+python = "^3.8"
+requests = "*"
+pytest = "*"
+black = "*"
+flake8 = "*"
 
-[project.optional-dependencies]
-dev = [
-    "pytest>=7.0.0",
-    "black>=22.0.0",
-    "flake8>=4.0.0",
-]
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
 
-[tool.setuptools]
-packages = {find = {}}
-
-[tool.setuptools.package-data]
-jarvisco = ["*.gbnf"]
+[tool.poetry.scripts]
+javisco = "jarvisco:entrypoint"
